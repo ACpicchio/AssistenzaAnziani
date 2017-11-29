@@ -1,0 +1,14 @@
+<div class="container">
+        <h2 class="green-text">Login</h2>
+        <p>Inserisci username e password per accedere al sito.</p>
+        <?=$this->loginForm; ?>
+        <br>
+        <p>Non sei registrato? <a href="
+                <?= $this->url(array(
+                'controller' => 'public',
+                'action'     => 'registrazione'),
+                'default',true
+            );
+            ?>"<b>Registrati!</b></a></p>
+</div>
+

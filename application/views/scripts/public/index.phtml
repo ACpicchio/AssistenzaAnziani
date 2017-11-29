@@ -1,0 +1,28 @@
+<div class="container">
+    <img src="<?= $this->baseUrl('images/homepage/photo1.jpg')?>" id="backgroundimage" border="0" alt="">
+    <br><br><br><br><br><br><br>
+    <h1 class="header center green-text">Inizia a condividere!</h1>
+    <div class="row center">
+        <h5 class="header col s12 light">Entra anche tu a far parte della community.</h5>
+    </div>
+    <br><br>
+    <div class="row center">
+        <div class="col l3 s12 push-l3">
+            <a href="<?= $this->url(array(
+                'controller' => 'public',
+                'action' => 'login'),
+                'default',true
+            );
+            ?>" id="download-button" class="btn-large waves-effect waves-light orange">LOGIN</a>
+        </div>
+        <div class="col l3 s12 push-l3">
+            <a href="<?= $this->url(array(
+                'controller' => 'public',
+                'action' => 'registrazione'),
+                'default',true
+            );
+            ?>" id="download-button" class="btn-large waves-effect waves-light orange">REGISTRATI</a>
+        </div>
+    </div>
+    <br><br>
+</div>
