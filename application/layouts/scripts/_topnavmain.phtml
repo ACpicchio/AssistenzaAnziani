@@ -9,12 +9,21 @@
            'default',true
        );
        ?>"
-       title="Home"><img class="" src="<?= $this->baseUrl('images/assistenza_anziani.jpg')?>" id="img-logo" >Assistenza Anziani</a>
-    <ul class="right">
+       title="Home"><img class="" src="<?= $this->baseUrl('images/assistenza_anziani.png')?>" id="img-logo" >Assistenza Anziani</a>
+    <ul class="right" id="logo-container">
         <li></li>
         <li></li>
         <li></li>
-        <li></li>
+        <li><a href="
+                        <?= $this->url(array(
+                'controller' => 'public',
+                'action'     => 'viewstatic',
+                'staticPage' => 'rules'
+            ),
+                'default',true
+            );
+            ?>"
+               title="Scopri la nostra azienda">Regolamento</a></li>
         <li><a href="
                         <?= $this->url(array(
                 'controller' => 'public',
@@ -23,7 +32,7 @@
                 'default',true
             );
             ?>"
-               title="Effettua il login">Login</a></li>
+               title="Effettua il login">Accedi</a></li>
         <li><a href="
                         <?= $this->url(array(
                 'controller' => 'public',
@@ -32,6 +41,15 @@
                 'default',true
             );
             ?>"
-               title="Registrati è gratis">Registrazione</a></li>
+               title="Registrati al sito">Registrazione</a></li>
+        <li><a href="
+                        <?= $this->url(array(
+                'controller' => 'public',
+                'action'     => 'registrazione'
+            ),
+                'default',true
+            );
+            ?>"
+               title="Registrati e offri il tuo contributo">Offri tu assistenza!</a></li>
     </ul>
 </ul>
