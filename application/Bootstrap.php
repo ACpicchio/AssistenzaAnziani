@@ -55,9 +55,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $front->registerPlugin(new App_Controller_Plugin_Acl());
     }
 
-    /*protected function _initDbParms()
+    protected function _initDbParms()
     {
-        include_once (APPLICATION_PATH . '/../../include/connect.php');
+        include_once (APPLICATION_PATH . '/configs/connectAS.php');
         $db = new Zend_Db_Adapter_Pdo_Mysql(array(
             'host'     => $HOST,
             'username' => $USER,
@@ -65,6 +65,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'dbname'   => $DB
         ));
         Zend_Db_Table_Abstract::setDefaultAdapter($db);
-    }*/
+    }
 
 }

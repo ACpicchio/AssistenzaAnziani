@@ -3,7 +3,7 @@
 class Application_Resource_Operatore extends Zend_Db_Table_Abstract
 {
     protected $_name = 'operatore';
-    protected $_primary = 'cf';
+    protected $_primary = 'op_id';
     protected $_rowClass = 'Application_Resource_Operatore_Item';
 
     public function init()

@@ -3,19 +3,19 @@
     <div>
         <table>
             <?php
-            if ($this->amici== NULL) {
+            if ($this->operatori == NULL) {
                 echo '<p>Nessun professionista trovato.</p>';
             }
             else {
-                foreach ($this->amici as $utente) {
+                foreach ($this->operatori as $op) {
                     echo '<tr>
-                                  <td><div class="image">' .$this->imgProfilo($utente->immagine, array('class' => 'circle imagefrmsearch')).'</div></td>
-                                  <td><a href=' . $this->url(array(
+                                  
+                            <td><a href=' . $this->url(array(
                             'controller' => 'user',
                             'action' => 'alias',
                             'utenteUsername' => $utente->username),
                             'default', true) .
-                        '>' . $utente->nome . ' ' . $utente->cognome . '</a></td>
+                        '>' . $op->nome . ' ' . $op->cognome . '</a></td>
                             <td></td>
                             <td></td>
                             <td></td>

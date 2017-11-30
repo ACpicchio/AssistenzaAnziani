@@ -4,6 +4,7 @@ class PublicController extends Zend_Controller_Action
 {
     protected $_authService;
     protected $_userModel;
+    protected $_operModel;
 
     public function init()
     {
@@ -11,8 +12,9 @@ class PublicController extends Zend_Controller_Action
         $this->view->loginForm = $this->getLoginForm();
         $this->view->registrazioneForm = $this->getRegistrazioneForm();
         $this->view->registrazioneOperatoreForm = $this->getRegistrazioneOperatoreForm();
-
-
+        $this->_authService = new Application_Service_Auth();
+        $this->_userModel = new Application_Model_User();
+        $this->_operModel = new Application_Model_Oper();
     }
 
     public function indexAction()
@@ -121,30 +123,18 @@ class PublicController extends Zend_Controller_Action
 
     public function operatoriAction()
     {
-        $i = 0;
-        $username = $this->_authService->getIdentity()->username;
-        $amiciziaDest = $this->_userModel->getAmiciziaDest($username);
 
-        foreach ($amiciziaDest as $amicizia) {
+        $tipo = $this->getParam('tipo', null);
+        $operatori = $this->_operModel->getOperByTipo($tipo);
 
-            $amici[$i] = $this->_userModel->getUserByUsername($amicizia->user_dest);
-            $i++;
-        }
-        $amiciziaMitt = $this->_userModel->getAmiciziaMitt($username);
-
-        foreach ($amiciziaMitt as $amicizia) {
-
-            $amici[$i] = $this->_userModel->getUserByUsername($amicizia->user_mitt);
-            $i++;
-        }
-        if ($amici == NULL) {
+        if ($operatori == NULL) {
             $this->view->assign(array(
-                    'amici' => NULL  )
+                    'operatori' => NULL  )
             );
         }
         else {
             $this->view->assign(array(
-                    'amici' => $amici  )
+                    'operatori' => $operatori  )
             );
         }
     }
