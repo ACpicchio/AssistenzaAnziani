@@ -7,9 +7,9 @@ class Application_Model_User extends App_Model_Abstract
     {
     }
 
-    public function getUserById($id)
+    public function getUserByEmail($id)
     {
-        return $this->getResource('Utente')->getUserById($id);
+        return $this->getResource('Utente')->getUserByEmail($id);
     }
 
     public function registrazione($info)

@@ -8,6 +8,12 @@ class Application_Model_Oper extends App_Model_Abstract
     {
     }
 
+
+    public function getOperatoreByEmail($id)
+    {
+        return $this->getResource('Operatore')->getOperatoreByEmail($id);
+    }
+
     public function registrazione($info)
     {
         return $this->getResource('Operatore')->nuovoOperatore($info);
