@@ -47,18 +47,17 @@ class PublicController extends Zend_Controller_Action
         }
         else {
             $values = $form->getValues();
-            //$values['tipo'] = 'user';
-            //if ($this->_userModel->usernameUsato($values['username'])) {        // restituisce vero se esiste già quell'username
-            //    $form->setDescription('Attenzione: Username non disponibile. Scegline un altro.');
-            //    return $this->render('registrazione');
-            //}
-            //else {
+            $values['tipo'] = 'user';
+            if ($this->_userModel->usernameUsato($values['username'])) {        // restituisce vero se esiste già quell'username
+                $form->setDescription('Attenzione: Username non disponibile. Scegline un altro.');
+                return $this->render('registrazione');
+            }
+            else {
                 $this->_userModel->registrazione($values);
                 $this->_helper->redirector('registrazioneeffettuata');}
 
-        //}
+        }
     }
-
 
 
     public function registrazioneeffettuataAction()
@@ -68,6 +67,28 @@ class PublicController extends Zend_Controller_Action
 
 
     public function loginAction(){
+    }
+
+    public function authenticateAction(){
+        $request = $this->getRequest();
+        if (!$request->isPost()) {
+            return $this->_helper->redirector('login');
+        }
+
+        $form = $this->_loginform;
+
+        if (!$form->isValid($request->getPost())) {
+            $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
+            return $this->render('login');
+        }
+
+        if (false === $this->_authService->authenticate($form->getValues())) {
+            $form->setDescription('Autenticazione fallita. Riprova');
+            return $this->render('login');
+        }
+
+        return $this -> _helper -> redirector('index', $this -> _authService -> getIdentity() -> ruolo);
+
     }
 
     private function getLoginForm()
@@ -107,25 +128,6 @@ class PublicController extends Zend_Controller_Action
             'default'
         ));
         return $this->_registrazioneform;
-    }
-
-
-    public function authenticateAction()
-    {
-        $request = $this->getRequest();
-        if (!$request->isPost()) {
-            return $this->_helper->redirector('login');
-        }
-        $form = $this->_loginform;
-        if (!$form->isValid($request->getPost())) {
-            $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
-            return $this->render('login');
-        }
-        if (false === $this->_authService->authenticate($form->getValues())) {
-            $form->setDescription('Autenticazione fallita. Riprova');
-            return $this->render('login');
-        }
-        //return $this->_helper->redirector('index', $this->_authService->getRole());
     }
 
 
