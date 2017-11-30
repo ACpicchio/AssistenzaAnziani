@@ -7,7 +7,8 @@ class Application_Form_Public_Auth_Login extends App_Form_Abstract
         $this->setMethod('post');
         $this->setName('login');
         $this->setAction('');
-    	
+
+
         $this->addElement('text', 'email', array(
             'filters'    => array('StringTrim', 'StringToLower'),
             'validators' => array(

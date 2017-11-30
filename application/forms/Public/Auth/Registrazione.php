@@ -32,13 +32,44 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
         $this->addElement('text', 'email', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
-                array('StringLength', true, array(3, 100))
-            ),
+                array('StringLength', true, array(3, 100))),
             'required'   => true,
             'label'      => 'Email',
             'decorators' => $this->elementDecoratorsReg,
         ));
-		
+
+
+        $this->addElement('text', 'cf', array(
+            'filters'    => array('StringTrim'),
+            'validators' => array(
+                array('StringLength', true, 16)),
+            'required'   => true,
+            'label'      => 'Codice Fiscale',
+            'decorators' => $this->elementDecoratorsReg,
+        ));
+
+
+        $this->addElement('text', 'citta', array(
+            'filters'    => array('StringTrim'),
+            'validators' => array(
+                array('StringLength', true, array(2, 50))
+            ),
+            'required'   => true,
+            'label'      => 'Città',
+            'decorators' => $this->elementDecoratorsReg,
+        ));
+
+
+        $this->addElement('text', 'indirizzo', array(
+            'filters'    => array('StringTrim'),
+            'validators' => array(
+                array('StringLength', true, array(2, 100))
+            ),
+            'required'   => true,
+            'label'      => 'Indirizzo',
+            'decorators' => $this->elementDecoratorsReg,
+        ));
+
 		
 		
 		$this->addElement('password', 'password', array(
