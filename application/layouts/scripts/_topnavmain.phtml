@@ -1,0 +1,63 @@
+<ul>
+    <a id="logo-container"
+       class="brand-logo"
+       href="
+                <?= $this->url(array(
+           'controller' => 'public',
+           'action'     => 'index'
+       ),
+           'default',true
+       );
+       ?>"
+       title="Home">Assistenza Anziani</a>
+    <ul class="right">
+        <li><a href="
+                        <?= $this->url(array(
+                'controller' => 'public',
+                'action'     => 'index'
+            ),
+                'default',true
+            );
+            ?>"
+               title="Torna alla Home">Home</a></li>
+        <li><a href="
+                         <?= $this->url(array(
+                'controller' => 'public',
+                'action'     => 'viewstatic',
+                'staticPage' => 'community'
+            ),
+                'default',true
+            );
+            ?>"
+               title="Informazioni sulla comunità">Comunità</a></li>
+        <li><a href="
+                        <?= $this->url(array(
+                'controller' => 'public',
+                'action'     => 'viewstatic',
+                'staticPage' => 'conditions'
+            ),
+                'default',true
+            );
+            ?>"
+               title="Leggi la normativa">Condizioni d'uso</a></li>
+        <li><a href="
+                        <?= $this->url(array(
+                'controller' => 'public',
+                'action'     => 'viewstatic',
+                'staticPage' => 'who'
+            ),
+                'default',true
+            );
+            ?>"
+               title="La nostra azienda">About us</a></li>
+        <li><a href="
+                        <?= $this->url(array(
+                'controller' => 'public',
+                'action'     => 'downloadpdf'
+            ),
+                'default',true
+            );
+            ?>"
+               title="Scarica la documentazione descrittiva del sito">Documentazione</a></li>
+    </ul>
+</ul>
