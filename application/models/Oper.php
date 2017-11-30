@@ -9,24 +9,24 @@ class Application_Model_Oper extends App_Model_Abstract
     }
 
 
-    public function getOperatoreByEmail($id)
+    public function getUtenteByEmail($email)
     {
-        return $this->getResource('Operatore')->getOperatoreByEmail($id);
+        return $this->getResource('Utente')->getUtenteByEmail($email);
     }
 
     public function registrazione($info)
     {
-        return $this->getResource('Operatore')->nuovoOperatore($info);
+        return $this->getResource('Utente')->nuovoUtente($info);
     }
 
-    public function getOperByTipo($tipo)
+    public function getUtenteByTipo($tipo)
     {
-        return $this->getResource('Operatore')->getOperatoreByTipo($tipo);
+        return $this->getResource('Utente')->getUtenteByTipo($tipo);
     }
 
-    public function getOperByCitta($citta)
+    public function getUtenteByCitta($citta)
     {
-        return $this->getResource('Operatore')->getOperatoreByCitta($citta);
+        return $this->getResource('Utente')->getUtenteByCitta($citta);
     }
 
 

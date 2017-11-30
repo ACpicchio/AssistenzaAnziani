@@ -3,7 +3,6 @@
 class Application_Service_Auth
 {
     protected $_userModel;
-
     protected $_operModel;
     protected $_auth;
     protected $role;
@@ -11,52 +10,30 @@ class Application_Service_Auth
     public function __construct()
     {
         $this->_userModel = new Application_Model_User();
-
         $this->_operModel = new Application_Model_Oper();
 
     }
-    
-    public function authenticate($credentials)
-    {
-        $adapter = $this->getAuthAdapter($credentials);
-        $auth    = $this->getAuth();
-        $result  = $auth->authenticate($adapter);
 
-        if (!$result->isValid()) {
+    public function authenticate($credentials) {
+        $adapter = $this -> getAuthAdapter($credentials);
+        $auth = $this -> getAuth();
+        $result = $auth -> authenticate($adapter);
+
+        if (!$result -> isValid()) {
             return false;
         }
-
-        $user = $this->_userModel->getUserByEmail($credentials['email']);
-        $auth->getStorage()->write($user);
-
-        $email = $this->_userModel->getUserByEmail($credentials['email']);
-        if ($email == NULL) {
-            $email = $this->_operModel->getOperatoreByEmail($credentials['email']);
-        }
-        $auth->getStorage()->write($email);
-
+        $user = $this -> _userModel -> getUserByEmail($credentials['email']);
+        $auth -> getStorage() -> write($user);
         return true;
     }
 
     public function aggiornaIdentity($email) {
-
         $auth = $this->getAuth();
         $user = $this->_userModel->getUserByEmail($email);
-
-        if ($user != null) {
-            $this->role = 'user';
-        }
-        else {
-            $user = $this->_operModel->getOperatoreByEmail($email);
-            $this->role = 'operatore';
-        }
-
-        $user = $this->_userModel->getUserByEmail($email);
-
         $auth->getStorage()->write($user);
         return true;
     }
-    
+
     public function getAuth()
     {
         if (null === $this->_auth) {
@@ -78,23 +55,18 @@ class Application_Service_Auth
     {
         $this->getAuth()->clearIdentity();
     }
-    
-    public function getAuthAdapter($values)
-    {
-		$authAdapter = new Zend_Auth_Adapter_DbTable(
-			Zend_Db_Table_Abstract::getDefaultAdapter(),
-			'utente',
-			'email',
-			'password'
-		);
-		$authAdapter->setIdentity($values['email']);
-		$authAdapter->setCredential($values['password']);
+
+    public function getAuthAdapter($values) {
+        $authAdapter = new Zend_Auth_Adapter_DbTable(Zend_Db_Table_Abstract::getDefaultAdapter(),
+            'utente', 'email', 'password');
+        $authAdapter -> setIdentity($values['email']);
+        $authAdapter -> setCredential($values['password']);
         return $authAdapter;
     }
 
     public function getRole()
     {
-        return $this->role;
+        return $this->ruolo;
     }
 
 
