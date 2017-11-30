@@ -30,7 +30,7 @@ class Application_Service_Auth
 
     public function aggiornaIdentity($email) {
         $auth = $this->getAuth();
-        $user = $this->_userModel->getUserByUsername($email);
+        $user = $this->_userModel->getUserByEmail($email);
         if ($user != null) {
             $this->role = 'user';
         }

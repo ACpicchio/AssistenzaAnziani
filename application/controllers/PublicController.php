@@ -46,16 +46,16 @@ class PublicController extends Zend_Controller_Action
         }
         else {
             $values = $form->getValues();
-            $values['tipo'] = 'user';
-            if ($this->_userModel->usernameUsato($values['username'])) {        // restituisce vero se esiste già quell'username
-                $form->setDescription('Attenzione: Username non disponibile. Scegline un altro.');
-                return $this->render('registrazione');
-            }
-            else {
+            //$values['tipo'] = 'user';
+            //if ($this->_userModel->usernameUsato($values['username'])) {        // restituisce vero se esiste già quell'username
+            //    $form->setDescription('Attenzione: Username non disponibile. Scegline un altro.');
+            //    return $this->render('registrazione');
+            //}
+            //else {
                 $this->_userModel->registrazione($values);
                 $this->_helper->redirector('registrazioneeffettuata');}
 
-        }
+        //}
     }
     public function registrazioneeffettuataAction()
     {
@@ -118,7 +118,7 @@ class PublicController extends Zend_Controller_Action
             $form->setDescription('Autenticazione fallita. Riprova');
             return $this->render('login');
         }
-        return $this->_helper->redirector('index', $this->_authService->getRole());
+        //return $this->_helper->redirector('index', $this->_authService->getRole());
     }
 
     public function operatoriAction()
