@@ -26,6 +26,12 @@
 
 }
 
+#card-container {
+    
+    margin-top: 25%;
+    
+}
+
 
 .btn-form {
 
@@ -62,6 +68,7 @@
         margin: 0px;
     }
 }
+
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
     nav .main-nav {
