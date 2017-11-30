@@ -39,3 +39,40 @@
     margin-top: 1%;
 
 }
+
+
+
+/* Large Devices, Wide Screens */
+/*==========  Non-Mobile First Method  ==========*/
+/* Large Devices, Wide Screens */
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+    .row-cm-mb > div {
+        margin-bottom: 20px;
+    }
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 20px 0px;
+    }
+    nav .container,
+    nav .main-nav {
+        padding: 0px;
+        margin: 0px;
+    }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+    nav .main-nav {
+        border-top: 1px solid #fff;
+    }
+    nav .main-nav li {
+        display: block;
+        width: 100%;
+    }
+    nav .main-nav li a {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+}
