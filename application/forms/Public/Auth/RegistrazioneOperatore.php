@@ -9,17 +9,6 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
         $this->setAction('');
 
 
-
-        $this->addElement('text', 'cf', array(
-            'filters'    => array('StringTrim'),
-            'validators' => array(
-                array('StringLength', true, array(11, 16))
-            ),
-            'required'   => true,
-            'label'      => 'CF o P.Iva',
-            'decorators' => $this->elementDecoratorsReg,
-        ));
-
         $this->addElement('text', 'nome', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
@@ -38,6 +27,16 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
             ),
             'required'   => true,
             'label'      => 'Cognome',
+            'decorators' => $this->elementDecoratorsReg,
+        ));
+
+        $this->addElement('text', 'cf', array(
+            'filters'    => array('StringTrim'),
+            'validators' => array(
+                array('StringLength', true, array(11, 16))
+            ),
+            'required'   => true,
+            'label'      => 'CF o P.Iva',
             'decorators' => $this->elementDecoratorsReg,
         ));
 
