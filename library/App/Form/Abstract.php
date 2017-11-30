@@ -3,7 +3,7 @@ class App_Form_Abstract extends Zend_Form
 {
 	public $elementDecorators = array(
         'ViewHelper',
-        array(array('alias1' => 'HtmlTag'),array('tag' => 'td', 'class' => 'input-field col pull-l4' )),
+        array(array('alias1' => 'HtmlTag'),array('tag' => 'td', 'class' => 'input-field col pull-l4 form' )),
 		array(array('alias2' => 'HtmlTag'), array('tag' => 'td', 'class' => 'errors','openOnly' => true, 'placement' => 'append')),
 		'Errors',
 		array(array('alias3' => 'HtmlTag'), array('tag' => 'td', 'closeOnly' => true, 'placement' => 'append')),
@@ -13,7 +13,7 @@ class App_Form_Abstract extends Zend_Form
 
     public $elementDecoratorsReg = array(
         'ViewHelper',
-        array(array('alias1' => 'HtmlTag'),array('tag' => 'td', 'class' => 'input-field col s6' )),
+        array(array('alias1' => 'HtmlTag'),array('tag' => 'td', 'class' => 'input-field col s6 pull-l6 form' )),
         array(array('alias2' => 'HtmlTag'), array('tag' => 'td', 'class' => 'errors','openOnly' => true, 'placement' => 'append')),
         'Errors',
         array(array('alias3' => 'HtmlTag'), array('tag' => 'td', 'closeOnly' => true, 'placement' => 'append')),
@@ -23,13 +23,13 @@ class App_Form_Abstract extends Zend_Form
 
 	public $buttonDecorators = array(
         'ViewHelper',
-        array(array('alias1' => 'HtmlTag'), array('tag' => 'td', 'class' => 'btn orange waves-effect waves-light col push-l6')),
+        array(array('alias1' => 'HtmlTag'), array('tag' => 'td', 'class' => 'btn orange waves-effect waves-light col push-l6 btn-form')),
         array(array('alias2' => 'HtmlTag'), array('tag' => 'tr')),
     	);
 
     public $buttonDecoratorsReg = array(
         'ViewHelper',
-        array(array('alias1' => 'HtmlTag'), array('tag' => 'td', 'class' => 'btn orange waves-effect waves-light ')),
+        array(array('alias1' => 'HtmlTag'), array('tag' => 'td', 'class' => 'btn orange waves-effect waves-light btn-form')),
         array(array('alias2' => 'HtmlTag'), array('tag' => 'tr')),
     );
 
