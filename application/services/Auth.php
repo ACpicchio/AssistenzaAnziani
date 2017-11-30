@@ -3,6 +3,7 @@
 class Application_Service_Auth
 {
     protected $_userModel;
+
     protected $_operModel;
     protected $_auth;
     protected $role;
@@ -10,6 +11,7 @@ class Application_Service_Auth
     public function __construct()
     {
         $this->_userModel = new Application_Model_User();
+
         $this->_operModel = new Application_Model_Oper();
 
     }
@@ -23,14 +25,24 @@ class Application_Service_Auth
         if (!$result->isValid()) {
             return false;
         }
+
         $user = $this->_userModel->getUserByEmail($credentials['email']);
         $auth->getStorage()->write($user);
+
+        $email = $this->_userModel->getUserByEmail($credentials['email']);
+        if ($email == NULL) {
+            $email = $this->_operModel->getOperatoreByEmail($credentials['email']);
+        }
+        $auth->getStorage()->write($email);
+
         return true;
     }
 
     public function aggiornaIdentity($email) {
+
         $auth = $this->getAuth();
         $user = $this->_userModel->getUserByEmail($email);
+
         if ($user != null) {
             $this->role = 'user';
         }
@@ -38,6 +50,9 @@ class Application_Service_Auth
             $user = $this->_operModel->getOperatoreByEmail($email);
             $this->role = 'operatore';
         }
+
+        $user = $this->_userModel->getUserByEmail($email);
+
         $auth->getStorage()->write($user);
         return true;
     }

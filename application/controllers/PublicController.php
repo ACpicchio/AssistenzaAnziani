@@ -6,16 +6,17 @@ class PublicController extends Zend_Controller_Action
     protected $_userModel;
     protected $_operModel;
 
+
     public function init()
     {
         $this->_helper->layout->setLayout('main');
+        $this -> _authService = new Application_Service_Auth();
         $this->view->loginForm = $this->getLoginForm();
         $this->view->registrazioneForm = $this->getRegistrazioneForm();
         $this->view->registrazioneOperatoreForm = $this->getRegistrazioneOperatoreForm();
-        $this->_authService = new Application_Service_Auth();
         $this->_userModel = new Application_Model_User();
         $this->_operModel = new Application_Model_Oper();
-    }
+   }
 
     public function indexAction()
     {
@@ -57,13 +58,16 @@ class PublicController extends Zend_Controller_Action
 
         //}
     }
+
+
+
     public function registrazioneeffettuataAction()
     {
     }
 
-    public function loginAction()
-    {
 
+
+    public function loginAction(){
     }
 
     private function getLoginForm()
@@ -77,6 +81,8 @@ class PublicController extends Zend_Controller_Action
         ));
         return $this->_loginform;
     }
+
+
 
     private function getRegistrazioneForm()
     {
@@ -103,6 +109,7 @@ class PublicController extends Zend_Controller_Action
         return $this->_registrazioneform;
     }
 
+
     public function authenticateAction()
     {
         $request = $this->getRequest();
@@ -120,6 +127,7 @@ class PublicController extends Zend_Controller_Action
         }
         //return $this->_helper->redirector('index', $this->_authService->getRole());
     }
+
 
     public function operatoriAction()
     {
