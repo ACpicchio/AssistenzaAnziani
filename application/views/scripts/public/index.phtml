@@ -12,9 +12,27 @@
                 </div>
                 <div class="card-action">
                     <p class="white-text card-title">Cosa stai cercando?</p>
-                    <a class="card-title" href="#"><b>Infermiere</b></a><br>
-                    <a class="card-title" href="#"><b>Operatore Socio Sanitario</b></a><br>
-                    <a class="card-title" href="#"><b>Fisioterapista</b></a>
+                    <a class="card-title" href="
+                <?= $this->url(array(
+                        'controller' => 'public',
+                        'action'     => 'operatori'),
+                        'default',true
+                    );
+                    ?>"><b>Infermiere</b></a><br>
+                    <a class="card-title" href="
+                <?= $this->url(array(
+                        'controller' => 'public',
+                        'action'     => 'operatori'),
+                        'default',true
+                    );
+                    ?>"><b>Operatore Socio Sanitario</b></a><br>
+                    <a class="card-title" href="
+                <?= $this->url(array(
+                        'controller' => 'public',
+                        'action'     => 'operatori'),
+                        'default',true
+                    );
+                    ?>"><b>Fisioterapista</b></a>
                 </div>
             </div>
         </div>

@@ -10,10 +10,6 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
     {
     }
 
-    public function getUserByUsername($username)
-    {
-        return $this->fetchRow($this->select()->where('username = ?', $username));
-    }
 
     public function getUserById($user_id)
     {
@@ -25,10 +21,4 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
         return $this->insert($info);
     }
 
-    public function usernameUsato($username)
-    {
-        if ($this->getUserByUsername($username))
-            return true;
-        else return false;
-    }
 }

@@ -19,6 +19,11 @@ class PublicController extends Zend_Controller_Action
     {
     }
 
+    public function viewstaticAction() {
+        $page = $this->_getParam('staticPage');
+        $this->render($page);
+    }
+
     public function registrazioneAction()
     {
     }
@@ -114,9 +119,34 @@ class PublicController extends Zend_Controller_Action
         return $this->_helper->redirector('index', $this->_authService->getIdentity()->tipo);
     }
 
-    public function viewstaticAction() {
-        $page = $this->_getParam('staticPage');
-        $this->render($page);
+    public function operatoriAction()
+    {
+        $i = 0;
+        $username = $this->_authService->getIdentity()->username;
+        $amiciziaDest = $this->_userModel->getAmiciziaDest($username);
+
+        foreach ($amiciziaDest as $amicizia) {
+
+            $amici[$i] = $this->_userModel->getUserByUsername($amicizia->user_dest);
+            $i++;
+        }
+        $amiciziaMitt = $this->_userModel->getAmiciziaMitt($username);
+
+        foreach ($amiciziaMitt as $amicizia) {
+
+            $amici[$i] = $this->_userModel->getUserByUsername($amicizia->user_mitt);
+            $i++;
+        }
+        if ($amici == NULL) {
+            $this->view->assign(array(
+                    'amici' => NULL  )
+            );
+        }
+        else {
+            $this->view->assign(array(
+                    'amici' => $amici  )
+            );
+        }
     }
 
 }
