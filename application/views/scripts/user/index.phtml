@@ -5,15 +5,14 @@
             <div class="card blue lighten-1">
                 <div class="card-content white-text">
                     <span class="card-title">
-                        <h4>Assistenza Sanitaria</h4>
-                        <p>Trova il libero professionista più vicino a te.</p>
+                        <?php echo '<h4>Benvenuto ' . $this->utente->nome . ' .</h4>' ?>
                     </span>
                 </div>
                 <div class="card-action">
                     <p class="white-text card-title">Cosa stai cercando?</p>
                     <a class="card-title" href="
                 <?= $this->url(array(
-                        'controller' => 'public',
+                        'controller' => 'user',
                         'action'     => 'operatori',
                         'tipo' => 'Infermiere'),
                         'default',true
@@ -21,7 +20,7 @@
                     ?>"><b>Infermiere</b></a><br>
                     <a class="card-title" href="
                 <?= $this->url(array(
-                        'controller' => 'public',
+                        'controller' => 'user',
                         'action'     => 'operatori',
                         'tipo' => 'Operatore Socio Sanitario'),
                         'default',true
@@ -29,7 +28,7 @@
                     ?>"><b>Operatore Socio Sanitario</b></a><br>
                     <a class="card-title" href="
                 <?= $this->url(array(
-                        'controller' => 'public',
+                        'controller' => 'user',
                         'action'     => 'operatori',
                         'tipo' => 'Fisioterapista'),
                         'default',true

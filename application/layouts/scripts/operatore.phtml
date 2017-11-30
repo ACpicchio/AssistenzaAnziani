@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <?= $this->headMeta(); ?>
+    <?= $this->headLink(); ?>
+    <?= $this->headTitle(); ?>
+    <?= $this->headScript(); ?>
+</head>
+<body id="wrap">
+<div class="navbar-fixed">
+
+    <nav class="blue">
+        <div class="nav-wrapper">
+            <?= $this->render('_navtop.phtml') ?>
+        </div>
+    </nav>
+</div>
+
+<div class="section no-pad-bot" id="main">
+    <?php echo $this->layout()->content; ?>
+</div>
+
+
+
+</>
+
+
+
+<!--  Scripts-->
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <?= $this->headMeta(); ?>
+    <?= $this->headLink(); ?>
+    <?= $this->headTitle(); ?>
+    <?= $this->headScript(); ?>
+</head>
+<body id="wrap">
+<div class="navbar-fixed">
+
+    <nav class="blue">
+        <div class="nav-wrapper">
+            <?= $this->render('_topnavuser.phtml') ?>
+        </div>
+    </nav>
+</div>
+
+<div class="section no-pad-bot" id="main">
+    <?php echo $this->layout()->content; ?>
+</div>
+
+<footer class="page-footer blue" id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="black-text">Assistenza Sanitaria</h5>
+                <p class="no-margin grey-text text-lighten-2 small-text">Il libero professionista più vicino a te.</p>
+                <p class="no-margin grey-text text-lighten-2 small-text">Leggi il
+                    <a class="white-text text-lighten-2 small-text" href="<?= $this->url(array(
+                        'controller' => 'public',
+                        'action'     => 'viewstatic',
+                        'staticPage' => 'rules'
+                    ),
+                        'default',true
+                    );
+                    ?>">Regolamento.</a></p>
+            </div>
+            <div class="col l6 s12 push-l2">
+                <h5 class="black-text">Contattaci</h5>
+                <p class="no-margin grey-text text-lighten-2 small-text">Telefono: 871/2345678</p>
+                <p class="no-margin grey-text text-lighten-2 small-text">E-mail: <a class="white-text text-lighten-2 small-text" href="mailto: assistenzaanziani@gmail.com">assistenzaanziani@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container small-text">
+            Tutti i diritti riservati.
+        </div>
+    </div>
+</footer>
+
+</>
+
+
+
+<!--  Scripts-->
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<?php $this->headScript()
+    ->appendFile('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    ->appendFile($this->baseUrl('js/functions.js'))
+    ->captureStart() ?>
+
+$(function()
+{
+var actionUrl='<?= $this->url(array('controller' => 'user', 'action' => 'valida',), 'default'); ?>';
+var formName='<?= $this->modificaProfiloForm->getName() ?>';
+$(":input").on('blur', function(event) {
+var formElementId = $(this).attr('id');
+doValidation(formElementId, actionUrl, formName);
+});
+
+var action = '<?= $this->url(array('controller' => 'user', 'action' => 'usernameExist',), 'default'); ?>';
+$("input#username").on('keyup', function(event){
+var username = $(this).val();
+verificaUsername(action, username);
+});
+});
+
+<?php $this->headScript()->captureEnd() ?>
+
+
+
+
+<div class="container center">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <?= $this->modificaProfiloForm; ?>
+        </div>
+    </div>
+</div>

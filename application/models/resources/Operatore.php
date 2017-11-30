@@ -31,4 +31,6 @@ class Application_Resource_Operatore extends Zend_Db_Table_Abstract
     {
         return $this->fetchAll($this->select()->where('citta = ?', $citta));
     }
+
+
 }
