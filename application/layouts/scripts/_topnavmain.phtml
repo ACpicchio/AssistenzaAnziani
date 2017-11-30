@@ -9,55 +9,29 @@
            'default',true
        );
        ?>"
-       title="Home">Assistenza Anziani</a>
+       title="Home"><img class="" src="<?= $this->baseUrl('images/assistenza_anziani.jpg')?>" id="img-logo" >Assistenza Anziani</a>
     <ul class="right">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
         <li><a href="
                         <?= $this->url(array(
                 'controller' => 'public',
-                'action'     => 'index'
+                'action'     => 'login'
             ),
                 'default',true
             );
             ?>"
-               title="Torna alla Home">Home</a></li>
-        <li><a href="
-                         <?= $this->url(array(
-                'controller' => 'public',
-                'action'     => 'viewstatic',
-                'staticPage' => 'community'
-            ),
-                'default',true
-            );
-            ?>"
-               title="Informazioni sulla comunità">Comunità</a></li>
+               title="Effettua il login">Login</a></li>
         <li><a href="
                         <?= $this->url(array(
                 'controller' => 'public',
-                'action'     => 'viewstatic',
-                'staticPage' => 'conditions'
+                'action'     => 'registrazione'
             ),
                 'default',true
             );
             ?>"
-               title="Leggi la normativa">Condizioni d'uso</a></li>
-        <li><a href="
-                        <?= $this->url(array(
-                'controller' => 'public',
-                'action'     => 'viewstatic',
-                'staticPage' => 'who'
-            ),
-                'default',true
-            );
-            ?>"
-               title="La nostra azienda">About us</a></li>
-        <li><a href="
-                        <?= $this->url(array(
-                'controller' => 'public',
-                'action'     => 'downloadpdf'
-            ),
-                'default',true
-            );
-            ?>"
-               title="Scarica la documentazione descrittiva del sito">Documentazione</a></li>
+               title="Registrati è gratis">Registrazione</a></li>
     </ul>
 </ul>
