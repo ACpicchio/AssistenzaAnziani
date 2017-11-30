@@ -38,7 +38,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->_view->headLink()->appendStylesheet($this->_view->baseUrl('css/materialize.css'));
         $this->_view->headLink()->appendStylesheet($this->_view->baseUrl('css/style.css'));
         $this->_view->headLink()->appendStylesheet("https://fonts.googleapis.com/icon?family=Material+Icons");
-        $this->_view->headTitle('AssistenzaSanitariaAncona');
+        $this->_view->headTitle('AssistenzaAnziani');
     }
 
     protected function _initDefaultModuleAutoloader()
@@ -55,7 +55,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $front->registerPlugin(new App_Controller_Plugin_Acl());
     }
 
-    protected function _initDbParms()
+    /*protected function _initDbParms()
     {
         include_once (APPLICATION_PATH . '/../../include/connect.php');
         $db = new Zend_Db_Adapter_Pdo_Mysql(array(
@@ -65,5 +65,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'dbname'   => $DB
         ));
         Zend_Db_Table_Abstract::setDefaultAdapter($db);
-    }
+    }*/
+
 }
