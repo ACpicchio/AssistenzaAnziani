@@ -13,7 +13,7 @@ class App_Form_Abstract extends Zend_Form
 
     public $elementDecoratorsReg = array(
         'ViewHelper',
-        array(array('alias1' => 'HtmlTag'),array('tag' => 'td', 'class' => 'input-field col s6 pull-l6 form' )),
+        array(array('alias1' => 'HtmlTag'),array('tag' => 'td', 'class' => 'input-field col s8 pull-l5 form' )),
         array(array('alias2' => 'HtmlTag'), array('tag' => 'td', 'class' => 'errors','openOnly' => true, 'placement' => 'append')),
         'Errors',
         array(array('alias3' => 'HtmlTag'), array('tag' => 'td', 'closeOnly' => true, 'placement' => 'append')),
@@ -55,11 +55,11 @@ class App_Form_Abstract extends Zend_Form
 
     public $fileDecorators = array(
         'File',
-        array(array('alias1' => 'HtmlTag'),array('tag' => 'td', 'class' => 'file col s6')),
+        array(array('alias1' => 'HtmlTag'),array('tag' => 'td', 'class' => 'file col s6 pull-l5 form')),
         array(array('alias2' => 'HtmlTag'), array('tag' => 'td', 'class' => 'errors', 'openOnly' => true, 'placement' => 'append')),
         'Errors',
         array(array('alias3' => 'HtmlTag'), array('tag' => 'td', 'closeOnly' => true, 'placement' => 'append')),
-        array('Label', array('tag' => 'td', 'class' => 'col s6 pull-l5')),
+        array('Label', array('tag' => 'td', 'class' => 'col s6 pull-l6')),
         array(array('alias4' => 'HtmlTag'), array('tag' => 'tr')),
     );
 
