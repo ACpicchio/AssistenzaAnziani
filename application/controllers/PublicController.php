@@ -23,12 +23,6 @@ class PublicController extends Zend_Controller_Action
     {
     }
 
-    public function registrazioneoperatoreAction()
-    {
-    }
-
-
-
     public function registratiAction()
     {
         if (!$this->getRequest()->isPost()) {
