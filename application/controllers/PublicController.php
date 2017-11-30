@@ -129,10 +129,13 @@ class PublicController extends Zend_Controller_Action
 
         if ($operatori == NULL) {
             $this->view->assign(array(
-                    'operatori' => NULL  )
+                   'operatori' => NULL  )
             );
         }
         else {
+            $this->view->assign(array(
+                    'tipo' => $tipo  )
+            );
             $this->view->assign(array(
                     'operatori' => $operatori  )
             );

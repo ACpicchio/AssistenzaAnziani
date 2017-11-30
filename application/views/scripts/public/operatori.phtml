@@ -1,19 +1,22 @@
 <div class="container">
-    <h3 class="blue-text">Operatori cercati DA CAMBIARE</h3>
+    <br><br>
     <div>
         <table>
             <?php
-            if ($this->operatori == NULL) {
-                echo '<p>Nessun professionista trovato.</p>';
+
+            if ($this->operatori== NULL) {
+                echo '<h3 class="blue-text">Spiacenti, nessun professionista trovato per questa categoria.</h3>';
             }
+
             else {
+
+                echo '<h4 class="blue-text darken-2">Professionisti trovati nella categoria: <b>' . $this->tipo . '</b></h4>';
                 foreach ($this->operatori as $op) {
                     echo '<tr>
-                                  
-                            <td><a href=' . $this->url(array(
-                            'controller' => 'user',
-                            'action' => 'alias',
-                            'utenteUsername' => $utente->username),
+                                  <td><div class="image">' .$this->imgProfilo($op->fotoprofilo, array('class' => 'circle imagefrmsearch')).'</div></td>
+                                  <td><a href=' . $this->url(array(
+                            'controller' => 'public',
+                            'action' => 'index'),
                             'default', true) .
                         '>' . $op->nome . ' ' . $op->cognome . '</a></td>
                             <td></td>
