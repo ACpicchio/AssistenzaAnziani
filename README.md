@@ -1,5 +1,0 @@
-ciaociao
-
-Baldo gay
-
-caiocia

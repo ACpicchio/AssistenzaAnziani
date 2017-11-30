@@ -21,4 +21,7 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
         return $this->insert($info);
     }
 
+    public function getUserByEmail($email){
+        return $this->fetchRow($this->select()->where('email = ?', $email));
+    }
 }

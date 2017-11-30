@@ -6,16 +6,17 @@ class PublicController extends Zend_Controller_Action
     protected $_userModel;
     protected $_operModel;
 
+
     public function init()
     {
         $this->_helper->layout->setLayout('main');
+        $this -> _authService = new Application_Service_Auth();
         $this->view->loginForm = $this->getLoginForm();
         $this->view->registrazioneForm = $this->getRegistrazioneForm();
         $this->view->registrazioneOperatoreForm = $this->getRegistrazioneOperatoreForm();
-        $this->_authService = new Application_Service_Auth();
         $this->_userModel = new Application_Model_User();
         $this->_operModel = new Application_Model_Oper();
-    }
+   }
 
     public function indexAction()
     {
@@ -33,7 +34,7 @@ class PublicController extends Zend_Controller_Action
     public function registrazioneoperatoreAction()
     {
     }
-
+/*
     public function registratiAction()
     {
         if (!$this->getRequest()->isPost()) {
@@ -57,12 +58,43 @@ class PublicController extends Zend_Controller_Action
 
         }
     }
+
+*/
+
     public function registrazioneeffettuataAction()
     {
     }
 
-    public function loginAction()
-    {
+
+
+    public function loginAction(){
+    }
+
+    public function authenticateAction(){
+        $request = $this->getRequest();
+        if (!$request->isPost()) {
+            return $this->_helper->redirector('login');
+        }
+
+        $form = $this->_loginform;
+
+        if (!$form->isValid($request->getPost())) {
+            $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
+            return $this->render('login');
+        }
+
+        if (false === $this->_authService->authenticate($form->getValues())) {
+            $form->setDescription('Autenticazione fallita. Riprova');
+            return $this->render('login');
+        }
+
+        $email = $form -> getValue('email');
+
+        if ($this->_operModel->getOperatoreByEmail($email) != NULL)
+            return $this->_helper->redirector('index', 'operatore');
+        elseif ($this->_userModel->getUserByEmail($email)!= NULL)
+            return $this->_helper->redirector('index', 'user');
+        else return $this->render('login');
 
     }
 
@@ -77,6 +109,8 @@ class PublicController extends Zend_Controller_Action
         ));
         return $this->_loginform;
     }
+
+
 
     private function getRegistrazioneForm()
     {
@@ -103,23 +137,6 @@ class PublicController extends Zend_Controller_Action
         return $this->_registrazioneform;
     }
 
-    public function authenticateAction()
-    {
-        $request = $this->getRequest();
-        if (!$request->isPost()) {
-            return $this->_helper->redirector('login');
-        }
-        $form = $this->_loginform;
-        if (!$form->isValid($request->getPost())) {
-            $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
-            return $this->render('login');
-        }
-        if (false === $this->_authService->authenticate($form->getValues())) {
-            $form->setDescription('Autenticazione fallita. Riprova');
-            return $this->render('login');
-        }
-        return $this->_helper->redirector('index', $this->_authService->getRole());
-    }
 
     public function operatoriAction()
     {
