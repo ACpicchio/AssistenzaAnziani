@@ -3,7 +3,7 @@
        class="brand-logo"
        href="
                 <?= $this->url(array(
-           'controller' => 'public',
+           'controller' => 'user',
            'action'     => 'index'
        ),
            'default',true
@@ -16,7 +16,7 @@
         <li></li>
         <li><a href="
                         <?= $this->url(array(
-                'controller' => 'public',
+                'controller' => 'user',
                 'action'     => 'viewstatic',
                 'staticPage' => 'rules'
             ),
@@ -27,29 +27,11 @@
         <li><a href="
                         <?= $this->url(array(
                 'controller' => 'public',
-                'action'     => 'login'
+                'action'     => 'index'
             ),
                 'default',true
             );
             ?>"
-               title="Effettua il login">Accedi</a></li>
-        <li><a href="
-                        <?= $this->url(array(
-                'controller' => 'public',
-                'action'     => 'registrazione'
-            ),
-                'default',true
-            );
-            ?>"
-               title="Registrati al sito">Registrazione</a></li>
-        <li><a href="
-                        <?= $this->url(array(
-                'controller' => 'public',
-                'action'     => 'registrazioneoperatore'
-            ),
-                'default',true
-            );
-            ?>"
-               title="Registrati e fornisci il tuo contributo">Fornisci tu assistenza!</a></li>
+               title="Effettua il logout">Logout</a></li>
     </ul>
 </ul>

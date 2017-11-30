@@ -1,0 +1,41 @@
+<div class="container ">
+    <img src="<?= $this->baseUrl('images/sfondo.jpg')?>" id="backgroundimage" border="0" alt="">
+    <div class="row" id="card-container">
+        <div class="col s9 pull-l2">
+            <div class="card blue lighten-1">
+                <div class="card-content white-text">
+                    <span class="card-title">
+                        <?php echo '<h4>Benvenuto ' . $this->utente->nome . ' .</h4>' ?>
+                    </span>
+                </div>
+                <div class="card-action">
+                    <p class="white-text card-title">Cosa stai cercando?</p>
+                    <a class="card-title" href="
+                <?= $this->url(array(
+                        'controller' => 'user',
+                        'action'     => 'operatori',
+                        'tipo' => 'Infermiere'),
+                        'default',true
+                    );
+                    ?>"><b>Infermiere</b></a><br>
+                    <a class="card-title" href="
+                <?= $this->url(array(
+                        'controller' => 'user',
+                        'action'     => 'operatori',
+                        'tipo' => 'Operatore Socio Sanitario'),
+                        'default',true
+                    );
+                    ?>"><b>Operatore Socio Sanitario</b></a><br>
+                    <a class="card-title" href="
+                <?= $this->url(array(
+                        'controller' => 'user',
+                        'action'     => 'operatori',
+                        'tipo' => 'Fisioterapista'),
+                        'default',true
+                    );
+                    ?>"><b>Fisioterapista</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
