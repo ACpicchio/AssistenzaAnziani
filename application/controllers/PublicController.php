@@ -8,6 +8,7 @@ class PublicController extends Zend_Controller_Action
     public function init()
     {
         $this->_helper->layout->setLayout('main');
+        $this->view->loginForm = $this->getLoginForm();
     }
 
     public function indexAction()
