@@ -1,0 +1,15 @@
+<div class="container center" id="login">
+        <h2 class="blue-text">Accedi</h2>
+        <p>Inserisci username e password per accedere al sito.</p>
+        <div class="" id="form">
+            <?=$this->loginForm; ?>
+        </div><br>
+        <p>Non sei registrato? <a href="
+                <?= $this->url(array(
+                'controller' => 'public',
+                'action'     => 'registrazione'),
+                'default',true
+            );
+            ?>"<b>Registrati, è gratis!</b></a></p>
+</div>
+
