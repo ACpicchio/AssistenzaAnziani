@@ -9,6 +9,10 @@ class PublicController extends Zend_Controller_Action
     {
         $this->_helper->layout->setLayout('main');
         $this->view->loginForm = $this->getLoginForm();
+        $this->view->registrazioneForm = $this->getRegistrazioneForm();
+        $this->view->registrazioneOperatoreForm = $this->getRegistrazioneOperatoreForm();
+
+
     }
 
     public function indexAction()
@@ -70,6 +74,19 @@ class PublicController extends Zend_Controller_Action
         $this->_registrazioneform->setAction($urlHelper->url(array(
             'controller' => 'public',
             'action' => 'registrati'),
+            'default'
+        ));
+        return $this->_registrazioneform;
+    }
+
+
+    private function getRegistrazioneOperatoreForm()
+    {
+        $urlHelper = $this->_helper->getHelper('url');
+        $this->_registrazioneform = new Application_Form_Public_Auth_RegistrazioneOperatore();
+        $this->_registrazioneform->setAction($urlHelper->url(array(
+            'controller' => 'public',
+            'action' => 'registrazioneOperatore'),
             'default'
         ));
         return $this->_registrazioneform;

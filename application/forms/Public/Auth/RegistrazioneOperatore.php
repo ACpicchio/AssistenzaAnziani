@@ -1,14 +1,14 @@
 <?php
 
-class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
+class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstract
 {
-	public function init()
-	{
-		$this->setMethod('post');
-        $this->setName('registrazione');
+    public function init()
+    {
+        $this->setMethod('post');
+        $this->setName('registrazioneOperatore');
         $this->setAction('');
-		
-		$this->addElement('text', 'nome', array(
+
+        $this->addElement('text', 'nome', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
                 array('StringLength', true, array(2, 25))
@@ -16,9 +16,9 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             'required'   => true,
             'label'      => 'Nome',
             'decorators' => $this->elementDecoratorsReg,
-            ));
-		
-		$this->addElement('text', 'cognome', array(
+        ));
+
+        $this->addElement('text', 'cognome', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
                 array('StringLength', true, array(2, 25))
@@ -26,7 +26,7 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             'required'   => true,
             'label'      => 'Cognome',
             'decorators' => $this->elementDecoratorsReg,
-            ));
+        ));
 
 
         $this->addElement('text', 'email', array(
@@ -38,10 +38,10 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             'label'      => 'Email',
             'decorators' => $this->elementDecoratorsReg,
         ));
-		
-		
-		
-		$this->addElement('password', 'password', array(
+
+
+
+        $this->addElement('password', 'password', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
                 array('StringLength', true, array(3, 25))
@@ -49,23 +49,22 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             'required'   => true,
             'label'      => 'Password',
             'decorators' => $this->elementDecoratorsReg,
-            ));
+        ));
 
 
+        $this->addElement('submit', 'registrati', array(
 
-		$this->addElement('submit', 'registrati', array(
-            
             'label'      => 'Registrati',
             'decorators' => $this->buttonDecoratorsReg,
-            ));
+        ));
 
 
-		$this->setDecorators(array(
+        $this->setDecorators(array(
             'FormElements',
             array('HtmlTag', array('tag' => 'table', 'class' => 'zend_form centered center-align row col s12"')),
-        		array('Description', array('placement' => 'prepend', 'class' => 'form-error')),
+            array('Description', array('placement' => 'prepend', 'class' => 'form-error')),
             'Form'
         ));
-		
-	}
+
+    }
 }
