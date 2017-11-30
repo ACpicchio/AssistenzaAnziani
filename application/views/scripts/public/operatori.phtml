@@ -1,0 +1,42 @@
+<div class="container">
+    <h3 class="blue-text">Operatori cercati DA CAMBIARE</h3>
+    <div>
+        <table>
+            <?php
+            if ($this->amici== NULL) {
+                echo '<p>Nessun professionista trovato.</p>';
+            }
+            else {
+                foreach ($this->amici as $utente) {
+                    echo '<tr>
+                                  <td><div class="image">' .$this->imgProfilo($utente->immagine, array('class' => 'circle imagefrmsearch')).'</div></td>
+                                  <td><a href=' . $this->url(array(
+                            'controller' => 'user',
+                            'action' => 'alias',
+                            'utenteUsername' => $utente->username),
+                            'default', true) .
+                        '>' . $utente->nome . ' ' . $utente->cognome . '</a></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                             </tr>';
+                }
+            }
+            ?>
+        </table>
+    </div>
+</div>
