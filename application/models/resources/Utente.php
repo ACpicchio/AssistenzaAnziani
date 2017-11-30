@@ -11,9 +11,9 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
     }
 
 
-    public function getUserById($user_id)
+    public function getUserByEmail($user_email)
     {
-        return $this->fetchRow($this->select()->where('user_id = ?', $user_id));
+        return $this->fetchRow($this->select()->where('email = ?', $user_email));
     }
 
     public function nuovoUtente($info)

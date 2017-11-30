@@ -15,6 +15,13 @@ class Application_Resource_Operatore extends Zend_Db_Table_Abstract
         return $this->insert($info);
     }
 
+
+    public function getOperatoreByEmail($user_email)
+    {
+        return $this->fetchRow($this->select()->where('email = ?', $user_email));
+    }
+
+
     public function getOperatoreByTipo($tipo)
     {
         return $this->fetchAll($this->select()->where('professione = ?', $tipo));
