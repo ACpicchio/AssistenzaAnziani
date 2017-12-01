@@ -22,6 +22,11 @@ class OperatoreController extends Zend_Controller_Action
 
     public function indexAction()
     {
+       $email = Zend_Auth::getInstance()->getIdentity()->email;
+       $operatore = $this->_operModel->getUtenteByEmail($email);
+        $this->view->assign(array(
+                'operatore' => $operatore  )
+        );
     }
 
 
