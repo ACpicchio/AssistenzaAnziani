@@ -76,5 +76,9 @@ class UserController extends Zend_Controller_Action
         return $this -> _helper -> redirector('index', 'public');
     }
 
+    public function recensioneAction() {
+
+    }
+
 
 }
