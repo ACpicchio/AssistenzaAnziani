@@ -47,7 +47,7 @@ class PublicController extends Zend_Controller_Action
         if (!$this->getRequest()->isPost()) {
             $this->_helper->redirector('index');
         }
-        $form=$this->_registrazioneform;
+        $form=$this->_registrazioneForm;
         if (!$form->isValid($_POST)) {
             $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
             return $this->render('registrazione');
@@ -71,7 +71,7 @@ class PublicController extends Zend_Controller_Action
         if (!$this->getRequest()->isPost()) {
             $this->_helper->redirector('index');
         }
-        $form=$this->_registrazioneform;
+        $form=$this->_registrazioneOperatoreForm;
         if (!$form->isValid($_POST)) {
             $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
             return $this->render('registrazioneoperatore');
@@ -133,26 +133,26 @@ class PublicController extends Zend_Controller_Action
     private function getRegistrazioneForm()
     {
         $urlHelper = $this->_helper->getHelper('url');
-        $this->_registrazioneform = new Application_Form_Public_Auth_Registrazione();
-        $this->_registrazioneform->setAction($urlHelper->url(array(
+        $this->_registrazioneForm = new Application_Form_Public_Auth_Registrazione();
+        $this->_registrazioneForm->setAction($urlHelper->url(array(
             'controller' => 'public',
             'action' => 'registratiutente'),
             'default'
         ));
-        return $this->_registrazioneform;
+        return $this->_registrazioneForm;
     }
 
 
     private function getRegistrazioneOperatoreForm()
     {
         $urlHelper = $this->_helper->getHelper('url');
-        $this->_registrazioneform = new Application_Form_Public_Auth_RegistrazioneOperatore();
-        $this->_registrazioneform->setAction($urlHelper->url(array(
+        $this->_registrazioneOperatoreForm = new Application_Form_Public_Auth_RegistrazioneOperatore();
+        $this->_registrazioneOperatoreForm->setAction($urlHelper->url(array(
             'controller' => 'public',
             'action' => 'registratioperatore'),
             'default'
         ));
-        return $this->_registrazioneform;
+        return $this->_registrazioneOperatoreForm;
     }
 
 
