@@ -53,7 +53,7 @@ class UserController extends Zend_Controller_Action
         }
     }
 
-    public function visualizzaprofiloAction() {
+    public function visualizzaAction() {
 
         $email = $this->getParam('email', null);
         $operatore = $this->_operModel->getUtenteByEmail($email);
