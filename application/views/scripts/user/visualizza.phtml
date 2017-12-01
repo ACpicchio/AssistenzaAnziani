@@ -11,40 +11,70 @@ echo '
                                  
                                         </div>
     <h3 class="center-align blue-text"><b>' .$op->nome . ' ' . $op->cognome .  '</b></h3>
-    <span>
+    <div class="col s6" >
         <ul class="collection">
             <li class="collection-item"><b>Città:</b> ' .$op->citta. '</li>
             <li class="collection-item">
+                                            <p class="black-text"><b>Indirizzo:</b> ' .$op->indirizzo. ' </p>
+                                            </li>
+                                                                                        <li class="collection-item">
                                             <p class="black-text"><b>Disponibilità:</b> ' .$op->disp. ' </p>
                                             </li>
                                             <li class="collection-item">
-                                            <p class="black-text"><b>Valutazione media:</b> ' .$op->disp. ' </p>
+                                            <p class="black-text"><b>Valutazione media:</b> ' .$op->valutazione. ' </p>
                                             </li>
                                             <li class="collection-item">
                                             <p class="black-text"><b>Descrizione:</b> ' .$op->descrizione. ' </p>
                                             </li>
+                                            <li class="collection-item">
+                                            <p class="black-text"><b>Ente di rilascio attestato:</b> ' .$op->ente. ' </p>
+                                            </li>
+                                            <li class="collection-item">
+                                            <p class="black-text"><b>Email:</b> ' .$op->email. ' </p>
+                                            </li>
+                                            <li class="collection-item">
+                                            <p class="green-text"><b>Tariffa oraria:</b> ' .$op->prezzo. '€</p>
+                                            </li>
         </ul>
-    </span>
+    </div>
     </div> 
-    <a class="btn orange">Contatta per assistenza</a>
-    </td>
-    <td>
+    <a class="btn orange" href="' . $this->url(array(
+        'controller' => 'user',
+        'action' => 'contatta',
+        'email' => $op->email),
+        'default', true) .
+    ' ">Contatta per assistenza</a>
+   
     <div class="">
-    <ul>
-    <li>
+    <br><br>
+    <h5 class="blue-text">Recensioni degli utenti:</h5>
+    <ul>';
+
+    foreach ($this->recensioni as $recensione) {
+
+    echo '
     
-      <div class="card grey lighten-3">
+    <li>
+      <div class="card grey left lighten-3">
         <div class="card-content blue-text">
-          <span class="card-title">PINO ANZIANO</span>
-          <p class="black-text">Recensione.</p>
+          <span class="card-title">'. $recensione->utente_nome .' ' . $recensione->utente_cognome .'</span>
+          <p class="black-text">'. $recensione->testo . '</p>
         </div>
         <div class="card-action red-text">
-          <p>Valutazione 4.5 su 5</p>
+          <p>Valutazione '. $recensione->valutazione . ' su 5</p>
         </div>
       </div>
     </div>
-    </li>
+    </li>'; }
+        echo '
+    <a class="btn orange align-right" href="' . $this->url(array(
+                'controller' => 'user',
+                'action' => 'recensione',
+                'email' => $op->email),
+                'default', true) .
+            ' ">Lascia anche tu una recensione</a>
     </ul>
-    </td>
-    </table>
+    
 </div>';
+?>
+
