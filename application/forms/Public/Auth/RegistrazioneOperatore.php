@@ -30,7 +30,7 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
             'decorators' => $this->elementDecoratorsReg,
         ));
 
-        $this->addElement('text', 'cf', array(
+        $this->addElement('text', 'partita_iva', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
                 array('StringLength', true, array(11, 16))
@@ -40,12 +40,12 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
             'decorators' => $this->elementDecoratorsReg,
         ));
 
-        $this->addElement('text', 'luogonascita', array(
+        $this->addElement('text', 'luogo_nascita', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
                 array('StringLength', true, array(2, 50))
             ),
-            'required'   => true,
+            'required'   => false,
             'label'      => 'Luogo di Nascita',
             'decorators' => $this->elementDecoratorsReg,
         ));
@@ -79,7 +79,7 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
             'decorators' => $this->elementDecoratorsReg,
         ));
 
-        $this->addElement('file', 'immagine', array(
+        $this->addElement('file', 'fotoprofilo', array(
             'label' => 'Carica immagine del profilo',
             'destination' => APPLICATION_PATH . '/../public/images/profilo',
             'validators' => array(
@@ -113,7 +113,7 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
         ));
 
 
-        $this->addElement('submit', 'registrati', array(
+        $this->addElement('submit', 'registrazione', array(
 
             'label'      => 'Registrati',
             'decorators' => $this->buttonDecoratorsReg,

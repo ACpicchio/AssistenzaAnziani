@@ -42,7 +42,7 @@ class PublicController extends Zend_Controller_Action
 
 
 
-    public function registratiAction()
+    public function registratiutenteAction()
     {
         if (!$this->getRequest()->isPost()) {
             $this->_helper->redirector('index');
@@ -66,7 +66,7 @@ class PublicController extends Zend_Controller_Action
         }
     }
 
-    public function registratiperatoreAction()
+    public function registratioperatoreAction()
     {
         if (!$this->getRequest()->isPost()) {
             $this->_helper->redirector('index');
@@ -84,7 +84,7 @@ class PublicController extends Zend_Controller_Action
                 return $this->render('registrazioneoperatore');
             }
             else {
-                $this->_userModel->registrazione($values);
+                $this->_operModel->registrazione($values);
                 $this->_helper->redirector('registrazioneeffettuata');}
 
         }
@@ -136,7 +136,7 @@ class PublicController extends Zend_Controller_Action
         $this->_registrazioneform = new Application_Form_Public_Auth_Registrazione();
         $this->_registrazioneform->setAction($urlHelper->url(array(
             'controller' => 'public',
-            'action' => 'registrati'),
+            'action' => 'registratiutente'),
             'default'
         ));
         return $this->_registrazioneform;

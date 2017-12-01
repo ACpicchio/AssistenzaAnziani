@@ -15,7 +15,7 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             ),
             'required'   => true,
             'label'      => 'Nome',
-            'decorators' => $this->elementDecoratorsReg,
+            'decorators' => $this->elementDecorators,
             ));
 		
 		$this->addElement('text', 'cognome', array(
@@ -25,7 +25,7 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             ),
             'required'   => true,
             'label'      => 'Cognome',
-            'decorators' => $this->elementDecoratorsReg,
+            'decorators' => $this->elementDecorators,
             ));
 
 
@@ -35,17 +35,17 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
                 array('StringLength', true, array(3, 100))),
             'required'   => true,
             'label'      => 'Email',
-            'decorators' => $this->elementDecoratorsReg,
+            'decorators' => $this->elementDecorators,
         ));
 
 
-        $this->addElement('text', 'cf', array(
+        $this->addElement('text', 'partita_iva', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
                 array('StringLength', true, 16)),
             'required'   => true,
             'label'      => 'Codice Fiscale',
-            'decorators' => $this->elementDecoratorsReg,
+            'decorators' => $this->elementDecorators,
         ));
 
 
@@ -56,7 +56,7 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             ),
             'required'   => true,
             'label'      => 'Città',
-            'decorators' => $this->elementDecoratorsReg,
+            'decorators' => $this->elementDecorators,
         ));
 
 
@@ -65,9 +65,9 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             'validators' => array(
                 array('StringLength', true, array(2, 100))
             ),
-            'required'   => true,
+            'required'   => false,
             'label'      => 'Indirizzo',
-            'decorators' => $this->elementDecoratorsReg,
+            'decorators' => $this->elementDecorators,
         ));
 
 		
@@ -79,15 +79,15 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             ),
             'required'   => true,
             'label'      => 'Password',
-            'decorators' => $this->elementDecoratorsReg,
+            'decorators' => $this->elementDecorators,
             ));
 
 
 
-		$this->addElement('submit', 'registrati', array(
+		$this->addElement('submit', 'registrazione', array(
             
             'label'      => 'Registrati',
-            'decorators' => $this->buttonDecoratorsReg,
+            'decorators' => $this->buttonDecorators,
             ));
 
 
