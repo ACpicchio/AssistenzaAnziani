@@ -54,7 +54,10 @@ class UserController extends Zend_Controller_Action
     }
 
     public function visualizzaAction() {
-    
+       $email = $this->getParam('email', null);
+       $operatore = $this->_userModel->getUserByEmail($email);
+       $this->view->assign(array('operatore' => $operatore));
+
     }
 
     public function logoutAction() {
