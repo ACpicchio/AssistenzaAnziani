@@ -85,7 +85,7 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
             'validators' => array(
                 array('Count', false, 1),
                 array('Size', false, 102400),
-                array('Extension', false, array('jpg', 'gif', 'jpeg'))),
+                array('Extension', false, array('pdf', 'gif', 'jpeg'))),
             'decorators' => $this->fileDecorators,
         ));
 
