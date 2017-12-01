@@ -36,7 +36,7 @@ class UserController extends Zend_Controller_Action
     {
 
         $tipo = $this->getParam('tipo', null);
-        $operatori = $this->_operModel->getOperByTipo($tipo);
+        $operatori = $this->_operModel->getUtenteByTipo($tipo);
 
         if ($operatori == NULL) {
             $this->view->assign(array(
@@ -51,6 +51,13 @@ class UserController extends Zend_Controller_Action
                     'operatori' => $operatori  )
             );
         }
+    }
+
+    public function visualizzaAction() {
+       $email = $this->getParam('email', null);
+       $operatore = $this->_userModel->getUserByEmail($email);
+       $this->view->assign(array('operatore' => $operatore));
+
     }
 
     public function logoutAction() {
