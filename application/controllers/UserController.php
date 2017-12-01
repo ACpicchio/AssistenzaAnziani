@@ -36,7 +36,7 @@ class UserController extends Zend_Controller_Action
     {
 
         $tipo = $this->getParam('tipo', null);
-        $operatori = $this->_operModel->getOperByTipo($tipo);
+        $operatori = $this->_operModel->getUtenteByTipo($tipo);
 
         if ($operatori == NULL) {
             $this->view->assign(array(

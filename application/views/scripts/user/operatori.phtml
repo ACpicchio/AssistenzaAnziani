@@ -22,7 +22,7 @@
                                         </div>
                                   </td>
                                   <td>
-                                  <div class="card horizontal light-blue lighten-5">
+                                  <div id="card" onclick="prenota()" onblur="blur()" class="card horizontal light-blue lighten-5">
                                         <div class="card-stacked">
                                         <div class="card-content">
                                         <ul>
@@ -45,12 +45,6 @@
                                         </div>
                                             
                                   </div>
-                                  </td>
-                                  <td><td><td>
-                                  </td>
-                                  <td class="contatta">
-                                            <a  class="btn orange" onclick="allerta()">Prenota</a>
-                                  </td>
                                   
                                  </div>
                               </div>                        
@@ -63,7 +57,14 @@
 </div>
 
 <script>
-    function allerta() {
+
+    function blur() {
+
+        $("#card").removeClass("light-blue").addClass("blue");
+
+    }
+
+    function prenota() {
         window.alert("Per contattare un professionista devi aver effettuato l'accesso al sito. \nVai alla sezione Accedi oppure Registrati al sito.");
     }
 </script>
