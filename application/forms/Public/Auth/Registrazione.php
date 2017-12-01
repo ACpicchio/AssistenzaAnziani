@@ -32,7 +32,8 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
         $this->addElement('text', 'email', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
-                array('StringLength', true, array(3, 100))),
+                array('StringLength', true, array(3, 50)),
+                Zend_Validate_EmailAddress::INVALID => 'EmailAddress'),
             'required'   => true,
             'label'      => 'Email',
             'decorators' => $this->elementDecorators,
@@ -81,6 +82,16 @@ class Application_Form_Public_Auth_Registrazione extends App_Form_Abstract
             'label'      => 'Password',
             'decorators' => $this->elementDecorators,
             ));
+
+		$this->addElement('password', 'conf_password', array(
+            'filters'    => array('StringTrim'),
+            'validators' => array(
+                array('identical', false, array('token' => 'password'))
+            ),
+            'required'   => true,
+            'label'      => 'Conferma Password',
+            'decorators' => $this->elementDecorators,
+        ));
 
 
 

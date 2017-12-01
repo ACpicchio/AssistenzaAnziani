@@ -55,12 +55,24 @@ class PublicController extends Zend_Controller_Action
         else {
             $values = $form->getValues();
             $values['ruolo'] = 'user';
-            if ($this->_userModel->emailUsata($values['email'])) {        // restituisce vero se esiste già quell'username
+            if ($this->_userModel->emailUsata($values['email'])) {
                 $form->setDescription('Attenzione: Email già esistente.');
                 return $this->render('registrazione');
             }
             else {
-                $this->_userModel->registrazione($values);
+
+                $nome = $form -> getValue('nome');
+                $cognome = $form -> getValue('cognome');
+                $password = $form -> getValue('password');
+                $indirizzo = $form -> getValue('indirizzo');
+                $comune = $form -> getValue('citta');
+                $email = $form -> getValue('email');
+                $codice_fis = $form -> getValue('partita_iva');
+
+
+                $data = array('nome'=> $nome, 'cognome'=>$cognome, 'password'=>$password,'indirizzo'=>$indirizzo, 'citta'=>$comune,
+                                'email'=>$email, 'partita_iva'=>$codice_fis, 'ruolo'=>'user');
+                $this->_userModel->registrazione($data);
                 $this->_helper->redirector('registrazioneeffettuata');}
 
         }
@@ -84,7 +96,23 @@ class PublicController extends Zend_Controller_Action
                 return $this->render('registrazioneoperatore');
             }
             else {
-                $this->_operModel->registrazione($values);
+
+                $nome = $form -> getValue('nome');
+                $cognome = $form -> getValue('cognome');
+                $password = $form -> getValue('password');
+                $email = $form -> getValue('email');
+                $codice_fis = $form -> getValue('partita_iva');
+                $nascita = $form -> getValue('luogo_nascita');
+                $professione = $form->getValue('professione');
+                $ente = $form -> getValue('ente');
+                $prezzo = $form -> getValue('prezzo');
+                $fotoprofilo = $form -> getValue('fotoprofilo');
+                $datanascita = $form -> getValue('data_nascita');
+
+                $data = array('nome'=> $nome, 'cognome'=>$cognome, 'password'=>$password, 'email'=>$email, 'partita_iva'=>$codice_fis, 'ruolo'=>'operatore',
+                    'luogo_nascita'=>$nascita,'data_nascita'=>$datanascita, 'professione'=>$professione, 'ente'=>$ente, 'prezzo'=>$prezzo, 'fotoprofilo'=>$fotoprofilo);
+
+                $this->_operModel->registrazione($data);
                 $this->_helper->redirector('registrazioneeffettuata');}
 
         }

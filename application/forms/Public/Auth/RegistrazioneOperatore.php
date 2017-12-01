@@ -6,7 +6,7 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
     {
         $this->setMethod('post');
         $this->setName('registrazioneOperatore');
-        $this->setAction('');
+
 
 
         $this->addElement('text', 'nome', array(
@@ -40,6 +40,13 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
             'decorators' => $this->elementDecoratorsReg,
         ));
 
+        $this->addElement('text', 'data_nascita', array(
+            'Label'=>'Data di nascita',
+            'Placeholder'=> 'yyyy-mm-dd',
+            'validators'=>array(array('date')),
+            'decorators'=>$this->elementDecoratorsReg,
+        ));
+
         $this->addElement('text', 'luogo_nascita', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
@@ -71,13 +78,15 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
 
         $this->addElement('text', 'prezzo', array(
             'filters'    => array('StringTrim'),
-            'validators' => array(
-                array('StringLength', true, array(2, 50))
+            'validators' => array(array('Digits'),
+                array('StringLength', true, array(2, 10))
             ),
             'required'   => true,
             'label'      => 'Tariffa oraria',
             'decorators' => $this->elementDecoratorsReg,
         ));
+
+
 
         $this->addElement('file', 'fotoprofilo', array(
             'label' => 'Carica immagine del profilo',
@@ -85,7 +94,7 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
             'validators' => array(
                 array('Count', false, 1),
                 array('Size', false, 102400),
-                array('Extension', false, array('pdf', 'gif', 'jpeg'))),
+                array('Extension', false, array('jpg', 'gif', 'jpeg'))),
             'decorators' => $this->fileDecorators,
         ));
 
@@ -94,8 +103,8 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
         $this->addElement('text', 'email', array(
             'filters'    => array('StringTrim'),
             'validators' => array(
-                array('StringLength', true, array(3, 100))
-            ),
+                array('StringLength', true, array(3, 50)),
+                Zend_Validate_EmailAddress::INVALID => 'EmailAddress'),
             'required'   => true,
             'label'      => 'Email',
             'decorators' => $this->elementDecoratorsReg,
@@ -109,6 +118,16 @@ class Application_Form_Public_Auth_RegistrazioneOperatore extends App_Form_Abstr
             ),
             'required'   => true,
             'label'      => 'Password',
+            'decorators' => $this->elementDecoratorsReg,
+        ));
+
+        $this->addElement('password', 'conf_password', array(
+            'filters'    => array('StringTrim'),
+            'validators' => array(
+                array('identical', false, array('token' => 'password'))
+            ),
+            'required'   => true,
+            'label'      => 'Conferma Password*',
             'decorators' => $this->elementDecoratorsReg,
         ));
 
