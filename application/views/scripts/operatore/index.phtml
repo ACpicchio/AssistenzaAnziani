@@ -3,9 +3,33 @@
 <div class="container center">
     <div>
         <br>
-        <h4 class="teal-text text-lighten-1">Benvenuto <i><?php echo $this -> authInfo('nome') . ' ' . $this -> authInfo('cognome'); ?></i></h4>
+        <h2 class="teal-text text-lighten-1">Benvenuto <i><?php echo $this -> authInfo('nome') . ' ' . $this -> authInfo('cognome'); ?></i></h2>
+        <table>
+            <tr>
+                <h4 class="teal-text text-lighten-1"> <i>Email: <?php echo $this -> authInfo('email'); ?></i></h4>
+            </tr>
+            <tr>
+                <h4 class="teal-text text-lighten-1"> <i>Prezzo: <?php echo $this -> authInfo('prezzo'); ?></i></h4>
+            </tr>
+            <tr>
+                <h4 class="teal-text text-lighten-1"> <i>Password: <?php echo $this -> authInfo('password'); ?></i></h4>
+            </tr>
+            <tr>
+                <h4 class="teal-text text-lighten-1"> <i>Immagine pofilo: <?php echo $this -> authInfo('fotoprofilo'); ?></i></h4>
+            </tr>
+        </table>
+        <td class="contatta">
+            <a  class="btn orange" onclick="allerta()">Modifica</a>
+        </td>
+
     </div>
     <br>
+</div>
 
+<script>
+    function allerta() {
+        window.alert("QUESTA E' UNA LIVE!!!!");
+    }
+</script>
 
 

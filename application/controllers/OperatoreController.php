@@ -32,25 +32,25 @@ class OperatoreController extends Zend_Controller_Action
     }
 
 
-    /*  ####################  MODIFICA DEL PROPRIO PROFILO  ####################  */
+    /*  ####################  MODIFICA DEL PROPRIO PROFILO  ####################
 
     public function modificaprofiloAction()
     {
     }
-/*
+
     private function getModificaProfiloForm()
     {
         $urlHelper = $this->_helper->getHelper('url');
-        $this->_modprofiloform = new Application_Form_Public_Auth_Registrazione();
+        $this->_modprofiloform = new Application_Form_Public_Auth_RegistrazioneOperatore();
 
 
-        $loggato = Zend_Auth::getInstance()->getIdentity();
+        $loggato = Zend_Auth::getInstance()->getIdentityByEmail();
 
-        $this->_modprofiloform->populate(array('nome' => $loggato->nome, 'cognome' => $loggato->cognome, 'username' => $loggato->username, 'password' => $loggato->password, 'genere' => $loggato->genere, 'nascita' => $loggato->nascita, 'fotoprofilo' => $loggato->fotoprofilo, 'citta' => $loggato->citta, 'email' => $loggato->email, 'telefono' => $loggato->telefono, 'quote' => $loggato->quote, 'vis_prof' => $loggato->vis_prof));
+        $this->_modprofiloform->populate(array('nome' => $loggato->nome, 'cognome' => $loggato->cognome, 'username' => $loggato->username, 'password' => $loggato->password, 'prezzo' => $loggato->prezzo, 'immagine' => $loggato->immagine,  'email' => $loggato->email,));
 
         return $this->_modprofiloform;
     }
-*/
+
     public function modAction()
     {
         $request = $this->getRequest();
@@ -62,7 +62,7 @@ class OperatoreController extends Zend_Controller_Action
             $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
             return $this->render('modificaprofilo');
         }
-        /*
+
                 $username = $form -> getValue('username');
 
                 if ($username !== Zend_Auth::getInstance() -> getIdentity() -> username) {
@@ -74,17 +74,12 @@ class OperatoreController extends Zend_Controller_Action
 
                 $nome = $form -> getValue('nome');
                 $cognome = $form -> getValue('cognome');
-                $password = $form -> getValue('password');
-                $genere = $form -> getValue('genere');
-                $nascita = $form -> getValue('nascita');
-                $fotoprofilo = $form -> getValue('fotoprofilo');
-                $comune = $form -> getValue('citta');
                 $email = $form -> getValue('email');
-                $telefono = $form -> getValue('telefono');
-                $citazione = $form -> getValue('quote');
-                $vis_prof = $form -> getValue('vis_prof');
+                $prezzo = $form -> getValue('prezzo');
+                $password = $form -> getValue('password');
+                $fotoprofilo = $form -> getValue('fotoprofilo');
 
-                $newdata = array('nome' => $nome, 'cognome' => $cognome, 'username' => $username, 'password' => $password, 'genere' => $genere, 'nascita' => $nascita, 'fotoprofilo' => $fotoprofilo, 'citta' => $comune, 'email' => $email, 'telefono' => $telefono, 'quote' => $citazione, 'vis_prof' => $vis_prof);
+                $newdata = array('nome' => $nome, 'cognome' => $cognome, 'username' => $username, 'email' => $email,'prezzo' => $password, 'prezzo' => $password, 'fotoprofilo' => $fotoprofilo);
 
                 $this -> _operatoreModel -> modifyUser($newdata, $this -> _loggato);
 
@@ -94,7 +89,7 @@ class OperatoreController extends Zend_Controller_Action
 
                 return $this -> _helper -> redirector('index', 'operatore');
             }
-        */
+    */
+
 
     }
-}
