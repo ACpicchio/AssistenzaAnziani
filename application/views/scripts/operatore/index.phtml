@@ -3,22 +3,15 @@
 <div class="container center">
     <div>
         <br>
-        <h2 class="teal-text text-lighten-1">Benvenuto <i><?php echo $this -> authInfo('nome') . ' ' . $this -> authInfo('cognome'); ?></i></h2>
-        <table>
-            <tr>
-                <h4 class="teal-text text-lighten-1"> <i>Email: <?php echo $this -> authInfo('email'); ?></i></h4>
-            </tr>
-            <tr>
-                <h4 class="teal-text text-lighten-1"> <i>Prezzo: <?php echo $this -> authInfo('prezzo'); ?></i></h4>
-            </tr>
-            <tr>
-                <h4 class="teal-text text-lighten-1"> <i>Password: <?php echo $this -> authInfo('password'); ?></i></h4>
-            </tr>
-            <tr>
-                <h4 class="teal-text text-lighten-1"> <i>Immagine pofilo: <?php echo $this -> authInfo('fotoprofilo'); ?></i></h4>
-            </tr>
-        </table>
-        <td class="contatta">
+        <h2 class="teal-text text-lighten-1">Benvenuto nel tuo profilo</h2>
+        <h2 class="text-darken-1"><i><?php echo $this -> authInfo('nome') . ' ' . $this -> authInfo('cognome'); ?></i></h2>
+        <div class="image">
+                <?= $this->imgProfilo($this -> authInfo('fotoprofilo')); ?>
+        </div>
+        <h4 class ="teal-text text-lighten-1"> Email:</h4> <h4 class ="text-darken-1"><?php echo $this -> authInfo('email'); ?> </h4>
+        <h4 class="teal-text text-lighten-1"> <i>Prezzo:</h4> <h4 class ="text-darken-1"> <?php echo $this -> authInfo('prezzo'); ?></i></h4>
+        <h4 class="teal-text text-lighten-1"> <i>Password:</h4> <h4 class ="text-darken-1"> <?php echo $this -> authInfo('password'); ?></i></h4>
+        <td class="modifica">
             <a  class="btn orange" onclick="allerta()">Modifica</a>
         </td>
 
