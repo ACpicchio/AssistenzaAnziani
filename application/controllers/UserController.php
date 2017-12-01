@@ -56,9 +56,20 @@ class UserController extends Zend_Controller_Action
     public function visualizzaAction() {
        $email = $this->getParam('email', null);
        $operatore = $this->_userModel->getUserByEmail($email);
+       $recensioni = $this->_userModel->getRecensioniDiUnOperatore($operatore->user_id);
+       $this->view->assign(array('operatore' => $operatore,
+       'recensioni' => $recensioni));
+
+    }
+
+
+    public function contattaAction() {
+       $email = $this->getParam('email', null);
+       $operatore = $this->_userModel->getUserByEmail($email);
        $this->view->assign(array('operatore' => $operatore));
 
     }
+
 
     public function logoutAction() {
         $this -> _authService -> clear();
