@@ -16,26 +16,31 @@
                 foreach ($this->operatori as $op) {
                     echo '<tr>
                                   <td width="1%">
-                                        <div class="image">
+                                        <div class="image" style="size: 5em">
                                                  ' .$this->imgProfilo($op->fotoprofilo) .'
                                  
                                         </div>
                                   </td>
                                   <td>
-                                  <div id="card" class="card horizontal light-blue lighten-5">
+                                  <div class="card horizontal light-blue lighten-5">
                                         <div class="card-stacked">
                                         <div class="card-content">
                                         <ul>
                                         
                                             <li><h6 class="center-align blue-text"><b>' .$op->nome . ' ' . $op->cognome .  '</b></h6></li>
+                                            
                                             <li>
-                                            <p class="black-text"><b>Città:</b> ' .$op->citta. ' </p>
+                                            <p class="black-text"><b>Data di nascita:</b> ' .$op->data_nascita. ' </p>
+                                            </li>
+                                            <li>
+                                            <p class="black-text"><b>Città di residenza:</b> ' .$op->citta. ' </p>
+                                            </li>
+                                           
+                                            <li>
+                                            <p class="black-text"><b>Tariffa oraria:</b> ' .$op->prezzo. ' euro</p>
                                             </li>
                                             <li>
                                             <p class="black-text"><b>Disponibilità:</b> ' .$op->disp. ' </p>
-                                            </li>
-                                            <li>
-                                            <p class="black-text"><b>Valutazione:</b> ' .$op->disp. ' </p>
                                             </li>
                                             <li>
                                             <p class="black-text"><b>Descrizione:</b> ' .$op->descrizione. ' </p>
@@ -43,8 +48,6 @@
                                         </ul>    
                                         </div>
                                         </div>
-                                            
-                                  </div>
                                   
                                   </td>
                                   <td><td><td>
