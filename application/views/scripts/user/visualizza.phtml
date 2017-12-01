@@ -1,0 +1,50 @@
+<?php
+
+$op = $this->operatore;
+
+echo '
+    <div class="container">
+    
+    <div class="left-align">
+    <div class="image">
+                                                 ' .$this->imgProfilo($op->fotoprofilo) .'
+                                 
+                                        </div>
+    <h3 class="center-align blue-text"><b>' .$op->nome . ' ' . $op->cognome .  '</b></h3>
+    <span>
+        <ul class="collection">
+            <li class="collection-item"><b>Città:</b> ' .$op->citta. '</li>
+            <li class="collection-item">
+                                            <p class="black-text"><b>Disponibilità:</b> ' .$op->disp. ' </p>
+                                            </li>
+                                            <li class="collection-item">
+                                            <p class="black-text"><b>Valutazione media:</b> ' .$op->disp. ' </p>
+                                            </li>
+                                            <li class="collection-item">
+                                            <p class="black-text"><b>Descrizione:</b> ' .$op->descrizione. ' </p>
+                                            </li>
+        </ul>
+    </span>
+    </div> 
+    <a class="btn orange">Contatta per assistenza</a>
+    </td>
+    <td>
+    <div class="">
+    <ul>
+    <li>
+    
+      <div class="card grey lighten-3">
+        <div class="card-content blue-text">
+          <span class="card-title">PINO ANZIANO</span>
+          <p class="black-text">Recensione.</p>
+        </div>
+        <div class="card-action red-text">
+          <p>Valutazione 4.5 su 5</p>
+        </div>
+      </div>
+    </div>
+    </li>
+    </ul>
+    </td>
+    </table>
+</div>';

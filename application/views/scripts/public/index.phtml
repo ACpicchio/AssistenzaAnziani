@@ -6,17 +6,21 @@
 <div class="container">
     <img style="opacity: 0.5" class ="img-responsive" src="<?= $this->baseUrl('images/sfondo1.jpg')?>" id="backgroundimage" border="0" alt="">
 
-    <div style=" display: flex; margin-top: 12%" class="" id="card-container">
+    <div style="display: flex; margin-top: 5%" id="card-container">
 
             <div class="container right" >
-                <div style="width: 100%; height: 100%; float: left; padding-right: 10%" class="card-content red-text text-darken-4">
+                <div style="width: 100%; height: 100%; float: left; padding-right: 10%; border-right-color: darkred; border-right-width: 1 px;border-right-style: solid;" class="card-content red-text text-darken-4">
 
-                        <h4>Hai bisogno di prestazioni mediche e non sai a chi rivolgerti?</h4>
-                        <h6>Con Assistenza Sanitaria trovi il professionista più vicino a te 7 giorni su 7, 24 ore su 24.</h6>
+                        <h4>HAI BISOGNO DI PRESTAZIONI MEDICHE A DOMICILIO?</h4>
+                        <h6>Con <b>Assistenza Sanitaria</b> trovi il professionista più vicino a te 7 giorni su 7, 24 ore su 24.</h6>
 
                     <br>
-                    <p class=" center red-text text-darken-4">Cosa stai cercando?</p>
-                    <a class="blue-text text-darken-4" href="
+                    <p class=" center red-text text-darken-4">Quale figura professionale stai cercando?</p>
+
+                    <div class="row">
+
+
+                        <a style="display: block" class="center blue darken-4 waves-effect waves-light btn" href="
                 <?= $this->url(array(
                         'controller' => 'public',
                         'action'     => 'operatori',
@@ -24,8 +28,8 @@
                         ),
                         'default',true
                     );
-                    ?>"><b>INFERMIERE</b></a><br>
-                    <a class="blue-grey-text text-darken-2" href="
+                    ?>">Infermiere</a><br>
+                    <a style="display: block" class=" blue darken-4 waves-effect waves-light btn" href="
                 <?= $this->url(array(
                         'controller' => 'public',
                         'action'     => 'operatori',
@@ -33,8 +37,8 @@
                         ),
                         'default',true
                     );
-                    ?>"><b>OPERATORE SOCIO SANITARIO</b></a><br>
-                    <a class="blue-text text-darken-4" href="
+                    ?>">OSS</a><br>
+                    <a style="display: block" class="blue darken-4 waves-effect waves-light btn" href="
                 <?= $this->url(array(
                         'controller' => 'public',
                         'action'     => 'operatori',
@@ -42,16 +46,31 @@
                         ),
                         'default',true
                     );
-                    ?>"><b>FISIOTERAPISTA</b></a>
+                    ?>">Fisioterapista</a>
                 </div>
+            </div>
             </div>
 
         <div class="container left">
-            <div style="width: 100%; height: 100%; float: right; padding-left: 10%" class="card-content red-text text-darken-4">
-                <h4>Sei un libero professionista in ambito sanitario?</h4>
-                <h6>Registrati al sito e metti le tue competenze al servizio di altri</h6>
+            <div style="width: 100%; height: 100%; float: right; padding-left: 10%;" class="card-content red-text text-darken-4">
+                <h4>SEI UN PROFESSIONISTA IN AMBITO SANITARIO?</h4>
+                <h6>Registrati al sito e metti le tue competenze al servizio degli altri</h6>
+                <br>
+                <div class="center container">
+                    <a href="
+                        <?= $this->url(array(
+                        'controller' => 'public',
+                        'action'     => 'registrazioneoperatore'
+                    ),
+                        'default',true
+                    );
+                    ?>"
+                            class="center white blue-text text-darken-4 darken-4 waves-effect waves-light btn large">Fornisci assistenza</a>
+                </div>
             </div>
         </div>
+    </div>
 </div>
+
 
 

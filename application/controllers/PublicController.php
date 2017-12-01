@@ -37,7 +37,9 @@ class PublicController extends Zend_Controller_Action
 
     public function registrazioneeffettuataAction()
     {
+
     }
+
 
 
     public function registratiAction()
