@@ -52,9 +52,9 @@ class PublicController extends Zend_Controller_Action
         }
         else {
             $values = $form->getValues();
-            $values['tipo'] = 'user';
-            if ($this->_userModel->usernameUsato($values['username'])) {        // restituisce vero se esiste già quell'username
-                $form->setDescription('Attenzione: Username non disponibile. Scegline un altro.');
+            $values['ruolo'] = 'user';
+            if ($this->_userModel->emailUsata($values['email'])) {        // restituisce vero se esiste già quell'username
+                $form->setDescription('Attenzione: Email già esistente.');
                 return $this->render('registrazione');
             }
             else {
