@@ -35,6 +35,11 @@ class PublicController extends Zend_Controller_Action
     {
     }
 
+    public function registrazioneeffettuataAction()
+    {
+    }
+
+
     public function registratiAction()
     {
         if (!$this->getRequest()->isPost()) {
@@ -47,9 +52,9 @@ class PublicController extends Zend_Controller_Action
         }
         else {
             $values = $form->getValues();
-            $values['tipo'] = 'user';
-            if ($this->_userModel->usernameUsato($values['username'])) {        // restituisce vero se esiste già quell'username
-                $form->setDescription('Attenzione: Username non disponibile. Scegline un altro.');
+            $values['ruolo'] = 'user';
+            if ($this->_userModel->emailUsata($values['email'])) {        // restituisce vero se esiste già quell'username
+                $form->setDescription('Attenzione: Email già esistente.');
                 return $this->render('registrazione');
             }
             else {
@@ -59,11 +64,29 @@ class PublicController extends Zend_Controller_Action
         }
     }
 
-
-    public function registrazioneeffettuataAction()
+    public function registratiperatoreAction()
     {
-    }
+        if (!$this->getRequest()->isPost()) {
+            $this->_helper->redirector('index');
+        }
+        $form=$this->_registrazioneform;
+        if (!$form->isValid($_POST)) {
+            $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
+            return $this->render('registrazioneoperatore');
+        }
+        else {
+            $values = $form->getValues();
+            $values['ruolo'] = 'operatore';
+            if ($this->_userModel->emailUsata($values['email'])) {        // restituisce vero se esiste già quell'username
+                $form->setDescription('Attenzione: Email già esistente.');
+                return $this->render('registrazioneoperatore');
+            }
+            else {
+                $this->_userModel->registrazione($values);
+                $this->_helper->redirector('registrazioneeffettuata');}
 
+        }
+    }
 
 
     public function loginAction(){
@@ -124,7 +147,7 @@ class PublicController extends Zend_Controller_Action
         $this->_registrazioneform = new Application_Form_Public_Auth_RegistrazioneOperatore();
         $this->_registrazioneform->setAction($urlHelper->url(array(
             'controller' => 'public',
-            'action' => 'registrazioneOperatore'),
+            'action' => 'registratioperatore'),
             'default'
         ));
         return $this->_registrazioneform;

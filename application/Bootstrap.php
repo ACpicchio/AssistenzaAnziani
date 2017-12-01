@@ -38,7 +38,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->_view->headLink()->appendStylesheet($this->_view->baseUrl('css/materialize.css'));
         $this->_view->headLink()->appendStylesheet($this->_view->baseUrl('css/style.css'));
         $this->_view->headLink()->appendStylesheet("https://fonts.googleapis.com/icon?family=Material+Icons");
-        $this->_view->headTitle('AssistenzaAnziani');
+        $this->_view->headTitle('AssistenzaSanitaria');
     }
 
     protected function _initDefaultModuleAutoloader()

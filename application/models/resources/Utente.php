@@ -36,4 +36,10 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
         return $this->fetchRow($this->select()->where('ruolo = '. $ruolo));
     }
 
+    public function emailUsata($email)
+    {
+        if ($this->getUtenteByEmail($email))
+            return true;
+        else return false;
+    }
 }
