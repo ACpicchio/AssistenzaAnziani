@@ -24,7 +24,7 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
 
     public function getUtenteByTipo($tipo)
     {
-        return $this->fetchAll($this->select()->where('professione = '. $tipo));
+        return $this->fetchAll($this->select()->where('professione = ?', $tipo));
     }
 
     public function getUtenteByCitta($citta)
