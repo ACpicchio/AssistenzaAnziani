@@ -17,4 +17,9 @@ class Application_Model_User extends App_Model_Abstract
         return $this->getResource('Utente')->nuovoUtente($info);
     }
 
+    public function emailUsata($info)
+    {
+        return $this->getResource('Utente')->emailUsata($info);
+    }
+
 }
