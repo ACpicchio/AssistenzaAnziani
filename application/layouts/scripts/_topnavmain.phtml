@@ -1,6 +1,7 @@
+
 <ul>
     <a id="logo-container"
-       class="brand-logo"
+       class="brand-logo white-text"
        href="
                 <?= $this->url(array(
            'controller' => 'public',
@@ -9,12 +10,10 @@
            'default',true
        );
        ?>"
-       title="Home"><img class="" src="<?= $this->baseUrl('images/assistenza_anziani.png')?>" id="img-logo" >Assistenza Sanitaria</a>
+       title="Home"><img  src="<?= $this->baseUrl('images/assistenza_anziani.png')?>" id="img-logo" >Assistenza Sanitaria</a>
     <ul class="right" id="logo-container">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li><a href="
+
+        <li><a class="white-text" href="
                         <?= $this->url(array(
                 'controller' => 'public',
                 'action'     => 'viewstatic',
@@ -24,8 +23,11 @@
             );
             ?>"
                title="Scopri la nostra azienda">Regolamento</a></li>
-        <li><a href="
-                        <?= $this->url(array(
+
+
+
+        <li><a class="white-text" href="
+                       <?= $this->url(array(
                 'controller' => 'public',
                 'action'     => 'login'
             ),
@@ -33,7 +35,12 @@
             );
             ?>"
                title="Effettua il login">Accedi</a></li>
-        <li><a href="
+
+
+
+
+
+        <li><a class="white-text" href="
                         <?= $this->url(array(
                 'controller' => 'public',
                 'action'     => 'registrazione'
@@ -42,7 +49,7 @@
             );
             ?>"
                title="Registrati al sito">Registrazione</a></li>
-        <li><a href="
+        <li><a class="white-text big" href="
                         <?= $this->url(array(
                 'controller' => 'public',
                 'action'     => 'registrazioneoperatore'
