@@ -22,4 +22,10 @@ class Application_Model_User extends App_Model_Abstract
         return $this->getResource('Utente')->emailUsata($info);
     }
 
+    public function getRecensioniDiUnOperatore($id) {
+
+        return $this->getResource('Recensione')->recensioni($id);
+
+    }
+
 }
